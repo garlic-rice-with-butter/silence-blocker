@@ -1,0 +1,27 @@
+{
+    "name": "Silence",
+    "description": "Browser-level social-media content blocker",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "extensionUi.html",
+      "default_icon": "images/icon.png"
+    },
+    "content_security_policy": {
+      "extension_pages": "script-src 'self' ; object-src 'self'"
+    },
+    "content_scripts": [
+      {
+        "js": [
+          "src/compiled.js"
+        ],
+        "matches": [
+          "http://*/*", "https://*/*",
+          "https://developer.chrome.com/docs/extensions/*",
+          "https://developer.chrome.com/docs/webstore/*",
+          "https://www.facebook.com/",
+          "https://www.facebook.com/*"
+        ]
+      }
+    ]
+  }
